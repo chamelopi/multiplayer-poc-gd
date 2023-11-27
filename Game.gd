@@ -2,6 +2,8 @@ extends Node3D
 
 var lobby
 
+var unit_scene = preload("res://Unit.tscn")
+
 func _ready():
 	# Let lobby know that we finished loading
 	lobby = get_tree().get_root().get_node("LobbyContainer")
@@ -38,7 +40,7 @@ func fill_lobby_list():
 	get_tree().set_pause(false)
 	for id in lobby.players:
 		var prefix = "(me) " if id == lobby.get_multiplayer_id() else ""
-		$PlayerList.text += prefix + lobby.players[id]["name"] + "\n"
+		$UI/PlayerList.text += prefix + lobby.players[id]["name"] + "\n"
 
 # -------------------------------------------
 
@@ -49,4 +51,22 @@ func _process(delta):
 	start += delta
 	if start - last > 1.0:
 		last = start
-		print(lobby.get_multiplayer_id(), "doing something")
+#		print(lobby.get_multiplayer_id(), "doing something")
+
+@rpc("any_peer", "call_local", "reliable")
+func spawn_units():
+	print(lobby.get_multiplayer_id(), "spawning units")
+	for i in range(100):
+		var unit = unit_scene.instantiate()
+		unit.position.z = randf_range(-15.0, 15.0)
+		unit.position.x = randf_range(-15.0, 15.0)
+		# For now, these have server authority
+		unit.set_multiplayer_authority(1)
+		# unit scene needs to have replication config (select MultiplayerSynchronizer
+		# & go to bottom panel to select properties for sync)
+		# unit scene needs to be added to Auto Spawn list & we need to set 'true' here
+		$Units.add_child(unit, true)
+
+func _on_spawn_button_pressed():
+	print(lobby.get_multiplayer_id(), "call spawn_units")
+	spawn_units.rpc_id(1)
