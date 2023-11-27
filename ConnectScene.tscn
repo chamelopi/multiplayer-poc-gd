@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://b64yce04g3frx"]
+
+[ext_resource type="Script" path="res://LobbyScript.gd" id="1_883wo"]
+
+[node name="LobbyContainer" type="GridContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -70.0
+offset_right = 200.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+columns = 2
+script = ExtResource("1_883wo")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Name: "
+
+[node name="NameEdit" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Your name here"
+max_length = 12
+
+[node name="HostLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Host:"
+
+[node name="HostEdit" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "localhost"
+placeholder_text = "localhost"
+
+[node name="PortLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Port:"
+
+[node name="PortEdit" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1337"
+placeholder_text = "1337"
+
+[node name="ConnectButton" type="Button" parent="."]
+layout_mode = 2
+text = "Connect"
+
+[node name="HostButton" type="Button" parent="."]
+layout_mode = 2
+text = "Host"
+
+[node name="StartButton" type="Button" parent="."]
+visible = false
+layout_mode = 2
+text = "Start"
+
+[connection signal="pressed" from="ConnectButton" to="." method="_on_connect_button_pressed"]
+[connection signal="pressed" from="HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
