@@ -53,6 +53,11 @@ func _process(delta):
 	if start - last > 1.0:
 		last = start
 #		print(lobby.get_multiplayer_id(), "doing something")
+	
+	$UI/StatsLabel.text = "FPS: " + str(Performance.get_monitor(Performance.TIME_FPS)) + "\n"
+	$UI/StatsLabel.text += "Process time: " + str(Performance.get_monitor(Performance.TIME_PROCESS)) + "\n"
+	$UI/StatsLabel.text += "Draw calls: " + str(Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)) + "\n"
+	$UI/StatsLabel.text += "Unit count: " + str(len($Units.get_children())) + "\n"
 
 @rpc("any_peer", "call_local", "reliable")
 func spawn_units():

@@ -24,6 +24,6 @@ func _process(delta):
 				moving = false
 				moved = 0.0
 				velocity = Vector3(0, 0, 0)
-			
-			move_and_slide()
+				
+		move_and_slide()
 

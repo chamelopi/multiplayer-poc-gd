@@ -27,4 +27,6 @@ shape = SubResource("CapsuleShape3D_wnypj")
 disabled = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_interval = 0.2
+delta_interval = 0.2
 replication_config = SubResource("SceneReplicationConfig_xmyj2")

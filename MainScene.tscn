@@ -22,6 +22,9 @@ text = "Spawn Units"
 [node name="PlayerList" type="Label" parent="UI"]
 layout_mode = 2
 
+[node name="StatsLabel" type="Label" parent="UI"]
+layout_mode = 2
+
 [node name="Units" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Unit.tscn")
 spawn_path = NodePath(".")
@@ -32,7 +35,7 @@ mesh = SubResource("PlaneMesh_g7n02")
 surface_material_override/0 = SubResource("StandardMaterial3D_ck7gq")
 
 [node name="CameraRoot" type="Node3D" parent="."]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 7, 3.5, 7)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 27.7941, 16.3156, 25.7579)
 
 [node name="Camera3D" type="Camera3D" parent="CameraRoot"]
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0)

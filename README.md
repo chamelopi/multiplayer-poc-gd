@@ -10,5 +10,6 @@ Just trying out Godot 4.1 multiplayer functionality (scene replication)
 
 ## TODOs
 
+- Figure out why we can't synchronize the velocity / any other custom property with the MultiplayerSynchronizer
 - Handle disconnect of client correctly on server side
 - Add selection + movement functionality (?) for each player
