@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://csijyqwfh6iy1"]
+[gd_scene load_steps=5 format=3 uid="uid://csijyqwfh6iy1"]
+
+[ext_resource type="Script" path="res://Unit.gd" id="1_qndds"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_81abd"]
 
@@ -15,12 +17,14 @@ properties/1/sync = true
 properties/1/watch = false
 
 [node name="Unit" type="CharacterBody3D"]
+script = ExtResource("1_qndds")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_81abd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_wnypj")
+disabled = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_xmyj2")

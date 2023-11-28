@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Game.gd" id="1_8stwa"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g7n02"]
-size = Vector2(15, 15)
+size = Vector2(200, 200)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ck7gq"]
 albedo_color = Color(0.180392, 0.407843, 0.164706, 1)
@@ -27,7 +27,7 @@ _spawnable_scenes = PackedStringArray("res://Unit.tscn")
 spawn_path = NodePath(".")
 spawn_limit = 100000
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="GroundPlane" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_g7n02")
 surface_material_override/0 = SubResource("StandardMaterial3D_ck7gq")
 
@@ -37,5 +37,8 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 [node name="Camera3D" type="Camera3D" parent="CameraRoot"]
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0)
 current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.789149, 0.0473672, 0.612372, -0.433013, 0.75, 0.5, -0.435596, -0.65974, 0.612372, 100, 80, 100)
 
 [connection signal="pressed" from="UI/SpawnButton" to="." method="_on_spawn_button_pressed"]

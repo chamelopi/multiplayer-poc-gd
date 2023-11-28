@@ -23,6 +23,7 @@ func show_disconnect_msg():
 	var msg = AcceptDialog.new()
 	msg.dialog_text = "Disconnected from server! Exiting game..."
 	msg.confirmed.connect(exit_game)
+	msg.canceled.connect(exit_game)
 	add_child(msg)
 	msg.show()
 	
@@ -59,6 +60,7 @@ func spawn_units():
 	for i in range(100):
 		var unit = unit_scene.instantiate()
 		unit.position.z = randf_range(-15.0, 15.0)
+		unit.position.y = 1.0
 		unit.position.x = randf_range(-15.0, 15.0)
 		# For now, these have server authority
 		unit.set_multiplayer_authority(1)
