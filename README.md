@@ -10,7 +10,5 @@ Just trying out Godot 4.1 multiplayer functionality (scene replication)
 
 ## TODOs
 
-- Add movement script to units
 - Handle disconnect of client correctly on server side
-- Add light to scene
 - Add selection + movement functionality (?) for each player
