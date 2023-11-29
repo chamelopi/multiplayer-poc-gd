@@ -11,7 +11,7 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/sync = true
 properties/0/watch = false
-properties/1/path = NodePath(".:rotation")
+properties/1/path = NodePath(".:my_velocity")
 properties/1/spawn = true
 properties/1/sync = true
 properties/1/watch = false
@@ -27,6 +27,5 @@ shape = SubResource("CapsuleShape3D_wnypj")
 disabled = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_interval = 0.2
-delta_interval = 0.2
+delta_interval = 0.1
 replication_config = SubResource("SceneReplicationConfig_xmyj2")
