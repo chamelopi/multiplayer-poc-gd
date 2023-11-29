@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bm352inyees8b"]
 
-[ext_resource type="Script" path="res://Game.gd" id="1_8stwa"]
+[ext_resource type="Script" path="res://scripts/Game.gd" id="1_xlyrq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g7n02"]
 size = Vector2(200, 200)
@@ -9,7 +9,7 @@ size = Vector2(200, 200)
 albedo_color = Color(0.180392, 0.407843, 0.164706, 1)
 
 [node name="Game" type="Node3D"]
-script = ExtResource("1_8stwa")
+script = ExtResource("1_xlyrq")
 
 [node name="UI" type="VBoxContainer" parent="."]
 offset_right = 40.0
@@ -26,7 +26,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Units" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Unit.tscn")
+_spawnable_scenes = PackedStringArray("res://scenes/Unit.tscn")
 spawn_path = NodePath(".")
 spawn_limit = 100000
 

@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://csijyqwfh6iy1"]
 
-[ext_resource type="Script" path="res://Unit.gd" id="1_qndds"]
+[ext_resource type="Script" path="res://scripts/Unit.gd" id="1_64upt"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_81abd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wnypj"]
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xmyj2"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_bp1pa"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/sync = true
@@ -17,7 +17,7 @@ properties/1/sync = true
 properties/1/watch = false
 
 [node name="Unit" type="CharacterBody3D"]
-script = ExtResource("1_qndds")
+script = ExtResource("1_64upt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_81abd")
@@ -28,4 +28,4 @@ disabled = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 delta_interval = 0.1
-replication_config = SubResource("SceneReplicationConfig_xmyj2")
+replication_config = SubResource("SceneReplicationConfig_bp1pa")

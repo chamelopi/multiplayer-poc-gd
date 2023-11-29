@@ -10,5 +10,6 @@ Just trying out Godot 4.1 multiplayer functionality (scene replication)
 
 ## TODOs
 
+- Dynamically set replication interval based on camera position (?)
 - Handle disconnect of client correctly on server side
 - Add selection + movement functionality (?) for each player

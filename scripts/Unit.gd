@@ -10,8 +10,8 @@ var moved = 0.0
 # Due to a bug we can only synchronize exported properties
 @export var my_velocity := Vector3(0., 0., 0.):
 	set(velo):
-		velocity = velo  # to set mine
-		my_velocity = velo  # to set theirs
+		velocity = velo # to set mine
+		my_velocity = velo # to set theirs
 
 # This runs on both the server and the client. Because the server owns the units, it has 
 # authority and its position & velocity will be synced to the units.
@@ -22,14 +22,14 @@ func _process(delta):
 		direction = Vector2(sin(rand_angle), cos(rand_angle)).normalized()
 		moving = true
 	else:
-		velocity.x = direction.x * SPEED * delta
-		velocity.z = direction.y * SPEED * delta
+		my_velocity.x = direction.x * SPEED * delta
+		my_velocity.z = direction.y * SPEED * delta
 		
 		moved += delta
 		
 		if moved >= 2.0:
 			moving = false
 			moved = 0.0
-			velocity = Vector3(0, 0, 0)
-				
+			my_velocity = Vector3(0, 0, 0)
+			
 	move_and_slide()

@@ -143,4 +143,4 @@ func _on_host_button_pressed():
 
 
 func _on_start_button_pressed():
-	load_game.rpc("res://MainScene.tscn")
+	load_game.rpc("res://scenes/MainScene.tscn")

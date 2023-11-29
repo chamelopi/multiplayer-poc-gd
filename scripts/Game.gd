@@ -2,7 +2,7 @@ extends Node3D
 
 var lobby
 
-var unit_scene = preload("res://Unit.tscn")
+var unit_scene = preload("res://scenes/Unit.tscn")
 
 func _ready():
 	# Let lobby know that we finished loading
@@ -45,15 +45,7 @@ func fill_lobby_list():
 
 # -------------------------------------------
 
-var start = 0
-var last = 0
-
 func _process(delta):
-	start += delta
-	if start - last > 1.0:
-		last = start
-#		print(lobby.get_multiplayer_id(), "doing something")
-	
 	$UI/StatsLabel.text = "FPS: " + str(Performance.get_monitor(Performance.TIME_FPS)) + "\n"
 	$UI/StatsLabel.text += "Process time: " + str(Performance.get_monitor(Performance.TIME_PROCESS)) + "\n"
 	$UI/StatsLabel.text += "Draw calls: " + str(Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)) + "\n"
@@ -64,14 +56,15 @@ func spawn_units():
 	print(lobby.get_multiplayer_id(), "spawning units")
 	for i in range(100):
 		var unit = unit_scene.instantiate()
-		unit.position.z = randf_range(-15.0, 15.0)
+		unit.position.z = randf_range(-45.0, 45.0)
 		unit.position.y = 1.0
-		unit.position.x = randf_range(-15.0, 15.0)
+		unit.position.x = randf_range(-45.0, 45.0)
 		# For now, these have server authority
 		unit.set_multiplayer_authority(1)
 		# unit scene needs to have replication config (select MultiplayerSynchronizer
 		# & go to bottom panel to select properties for sync)
 		# unit scene needs to be added to Auto Spawn list & we need to set 'true' here
+		# If you move the unit scene, you have to re-set the Auto Spawn list!
 		$Units.add_child(unit, true)
 
 func _on_spawn_button_pressed():
